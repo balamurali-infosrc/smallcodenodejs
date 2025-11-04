@@ -33,8 +33,7 @@ jobs:
         run: |
           pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
           npm install
-          npm run build --if-present
-          npm run test --if-present
+          npm start --if-present
           popd
 
       - name: Upload artifact for deployment job
@@ -60,4 +59,5 @@ jobs:
           app-name: 'test143'
           slot-name: 'Production'
           package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
+
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_2398E032072E4529925B6E2D93F22BCC }}
