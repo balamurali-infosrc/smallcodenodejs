@@ -26,6 +26,7 @@ jobs:
       - name: Install Dependencies
         run: |
           npm install
+          npm run --if-present
           npm start --if-present
 
       - name: Upload Artifact
@@ -50,3 +51,4 @@ jobs:
           app-name: 'test143'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_2398E032072E4529925B6E2D93F22BCC }}
           package: .
+
