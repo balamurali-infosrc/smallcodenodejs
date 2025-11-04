@@ -4,7 +4,7 @@ info:
   version: 1.0.0
 
 servers:
-  - url: https://test143-cxb3cva5c5atczc5.canadacentral-01.azurewebsites.net
+  - url: https://test1956.azurewebsites.net
 
 paths:
   /users:
