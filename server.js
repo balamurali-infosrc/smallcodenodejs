@@ -23,6 +23,6 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.listen(port, () => {
   // console.log(`✅ Server running at http://localhost:${port}`);
   // console.log(`✅ Swagger Docs → http://localhost:${port}/api-docs`);
-   console.log(`✅ Server running at https://wel1992.azurewebsites.net:${port}`);
-  console.log(`✅ Swagger Docs → https://wel1992.azurewebsites.net:${port}/api-docs`);
+   console.log(`✅ Server running at https://wel1992.azurewebsites.net`);
+  console.log(`✅ Swagger Docs → https://wel1992.azurewebsites.net/api-docs`);
 });
