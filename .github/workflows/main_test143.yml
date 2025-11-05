@@ -1,0 +1,52 @@
+# Docs for the Azure Web Apps Deploy action: https://github.com/azure/functions-action
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+
+name: Build and Deploy Node.js Web App - test143
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+env:
+  NODE_VERSION: '18.x'
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install and Test
+        run: |
+          npm install
+          npm run --if-present
+
+          # npm start --if-present
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: node-app
+          path: .
+
+  deploy:
+    runs-on: windows-latest
+    needs: build
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: node-app
+
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: 'test143'
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_2398E032072E4529925B6E2D93F22BCC }}
+          package: .
+
+
+
