@@ -1,4 +1,4 @@
-let users = [{ id: 1, name: "John Doe" }];
+let users = [{ id: 1, name: "Balamurali" }];
 
 exports.getUsers = (req, res) => {
   res.json(users);
